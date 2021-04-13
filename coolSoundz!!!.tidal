@@ -1,0 +1,10 @@
+--- 2 i za moment hush
+d1 $ fast 10000 $ sound "bd sn . mt ht lt . arpy arpy:4 . snare clap:4 bd*2"
+hush
+
+---idk, spoko drum
+d3 $ fast 1 $ n "0 1 2 0 [4 4] [[3 4] [2 3]] " # sound "kick"
+hush
+
+-- glitchy!!!#!!@31
+d1 $  sound "cpu*16" # n "0 0 4 3 4"  #crush "3"
