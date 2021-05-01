@@ -1,0 +1,127 @@
+d1 $ chunk 4 (hurry 2) $ sound "bd [~ rs] "
+
+superimpose rev $ superimpose (fast 2)
+  $ chunk 4 (blend 0.5 "bd")
+  $ superimpose rev
+  $ fast "1 5 3"
+  $ iter 4 "bd bd bd bd"
+
+
+d1 $ stack ["bd sn [cp ht] hh","bd sn [cp ht] hh"]
+
+d1 $ superimpose (fast 2) $ sound "bd sn [cp ht] hh"
+
+d1 $ iter 2 $ n "0 1 2 3" # sound "numbers"
+
+d2 $ sound "clap"
+
+
+d1 $ iter 8 $ slow 2 $ n "0 1 2 3 4 5 6 7" # sound "numbers"
+d1 $ chunk 4 (hurry 2) $ sound "bd [~ rs] mt [lt ht]" # crush 5
+
+
+d1 $ sound "[lt ht mt ,[rs rs] [rs rs rs]]"
+
+d1 $ s "{lt ht mt, bd rs}"
+
+hush
+
+
+d1 $ every 16 (density 24 . (|+| midinote "24") . (# sustain "0.3") . (# attack "0.05"))
+ $ s "supercomparator/4" # midinote ((irand 24) + 24)
+ # sustain "8" # attack "0.5" # hold "4" # release "4"
+ # voice "0.5" # resonance "0.9" # lfo "4" # speed "30" # pitch1 "4"
+
+ d2 $jux (hurry 0.5) $loopAt (4*(cR 1 "48")) $ bite 4 "1 4 2 3 4 2 3 1" $ sound "yd:13*2" # shape 0.4 #cut 2
+
+
+
+cps 1
+
+d1 $ slowspread (loopAt) [0.5,1,0.25] $ slowspread (density) [1,2,4,8] $ sound "perc*4"
+
+d2 $ n (irand 8) # sound "voodoo" # gain "<1 1 1 0>"
+
+d3 $ superimpose (density 2) $ weave 4 (sound "jvbass") [
+  vowel "a o a o"
+  # up (run 32) ]
+  # gain "<1 1 1 0>"
+  # shape "0.8"
+  # cutoff 4000
+
+d4 $ jux (rev) $ sound "{bd ~ bd [cp cp?], ~ ~ hh [hh hh] [hh hh hh]}" # gain "<1 0 1 1>" # shape 0.4
+
+d5 $ sound "bd*16?" # up (irand 32)
+
+hush
+
+
+
+
+
+
+
+
+
+
+
+cps 1
+
+c1 $ jux (density 2)
+  $ sound "{bskick ~ bskick ~, bsperc:6 ~ [bsperc:3 bsperc:3] bsperc:6 ~}"
+
+c2 $ sound "skel" # cut 1
+
+c2 silence
+
+c2 $ loopAt 8 $ striate 16 $ sound "skel:1 skel:1" # cut 1
+
+c2 $ slowspread (striate) [2,4] $ sound "skel:2 skel:2" # cut 1
+
+c2 $ jux (slow 2) $ up "{~ , [1[[1[[2[[]1 1]]1]]2]] ~}" # sound "skel:3" # cut 1
+
+c3 $ up "[[1 4 2 3[[1 4 2 3]]1 4 2 3]]1 4 2 3] [[1 4 2 3[[1 4 2 3]]1 4 2 3]]1 4 2 3]" # sound "skel:6" # cut 2
+
+
+c2 $ loopAt 3 $ striate 8 $ sound "skel:8 skel:8 skel:8 skel:8" # cut 1
+
+hush
+
+c2 $ sound "skel:8" # vowel "a"
+
+c2 $ slowspread (slow) [1,2,4,8] $ sound "skel:9"
+
+c3 $ slowspread (slow) [1,0.5,0.25] $ sound "skel:11 skel:11 skel:11 skel:11"
+
+c3 silence
+
+solo $ c2 $ sound "{~ , skel:12 skel:12 skel:12 ~}" # cut 1
+
+solo $ c3 $ slowspread (loopAt) [1,2,3,4]
+  $ chop 32
+  $ slowspread (density) [2,4,8]
+  $ sound "italy*8"
+  # shape 0.4
+
+c2 silence
+
+
+solo $ c4 $ sound "bsperc:6*8"
+  # vowel "<a o a>"
+  # up "<1 4 8 16>"
+  # shape "0.4"
+  # gain "1.5"
+
+c5 $ sound "skel:0" # cut 1
+
+c5 silence
+
+c6 $ sound "{bskick:1 [bsperc:3 bsperc:3/2] bskick:1 ~, ~ bshihat ~ [bshihat bshihat] [bshihat]}"
+
+c7 $ slowspread (slow) [1,2,4,8] $ sound "skel:9"
+
+c7 silence
+
+c8 $ up "[1 1[1[1 1 1 1]1 1]1 [1 1[1 1]1 1]1 1 1]" # sound "italy" # gain "1.5"
+
+hush

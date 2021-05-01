@@ -3,8 +3,22 @@ d1 $ fast 10000 $ sound "bd sn . mt ht lt . arpy arpy:4 . snare clap:4 bd*2"
 hush
 
 ---idk, spoko drum
-d3 $ fast 1 $ n "0 1 2 0 [4 4] [[3 4] [2 3]] " # sound "kick"
+d2 $ fast 1 $ n "0 1 2 0 [4 4] [[3 4] [2 3]] " # sound "kick" # gain "0.7"
 hush
 
 -- glitchy!!!#!!@31
-d1 $  sound "cpu*16" # n "0 0 4 3 4"  #crush "3"
+
+d1 $ fast 2 $ n "0 4*2 ~ 4 2 4 5 ~" # sound "cpu2"
+  # squiz 2
+
+d2 $  sound "cpu*16" # n "0 0 ~ 3 ~"  #crush "3" # gain "[0.8 0.7]*8"
+
+setcps(135/60/4)
+
+d3 $ fast 5 $ s "hh*2"  # gain "[0.8 1.2]"
+
+
+d3 $ s "hh*10"  # gain "[0.8 1.2]*5"
+d1 $ sound "bd*32" # shape sine
+d1 $ sound "clap*4" # speed (-0.01)
+d3 $ silence
