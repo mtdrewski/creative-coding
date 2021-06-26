@@ -42,3 +42,19 @@ osc(3,0,2).modulate(noise(3).add(gradient(),-1),1)
 // postcards
 new Array(10).fill().reduce((a,b)=>a.colorama(0.01),
                       gradient(0.1)).out()
+
+//lavalamp
+osc(3, 0, 2)
+  .layer(solid(1, 1, 1).mask(noise(3).thresh(0.1,1e-6)))
+  .layer(osc(6, 0, 2).mask(noise(3).thresh(0.2,1e-6)))
+  .out();
+
+
+//topografia
+new Array(8).fill()
+.reduce((a,b,i)=>a.layer(osc(6, 0, 2).mask(noise(5).thresh(i/20+.1,0.01)).scroll(i/100,i/50)),osc(3,0,2)).scale(1.2).out()
+
+
+
+osc(10,.5,2).mult(shape(4,0.6)).out(o1)
+src(o0).scale(1.01).rotate().blend(o1,.5).out(o0) //change rotate for effects
