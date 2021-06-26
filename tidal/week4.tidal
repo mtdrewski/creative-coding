@@ -5,7 +5,7 @@
 -- Here's what the sine waveform sounds like applied to sample playback
 -- speed:
 d1 $ sound "bd*32" # speed (sine+0.5) -- #pan sine
-d1 $ sound "bd*32" # speed (range 0.5 2.5 sine)
+d1 $ sound "bd*32" # speed (range 0.5 3.5 sine)
 -- and to panning:
 d1 $ sound "bd*32" # pan sine
 

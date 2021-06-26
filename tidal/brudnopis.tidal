@@ -53,6 +53,7 @@ d4 $ jux (rev) $ sound "{bd ~ bd [cp cp?], ~ ~ hh [hh hh] [hh hh hh]}" # gain "<
 
 d5 $ sound "bd*16?" # up (irand 32)
 
+
 hush
 
 
