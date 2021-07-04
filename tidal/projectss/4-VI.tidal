@@ -1,0 +1,5 @@
+d1 $ slow 4 $ s "break" # n "0"
+hush
+
+d1 $ slow 2 $ s "proc" # n "0"
+hush

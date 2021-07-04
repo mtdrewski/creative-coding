@@ -224,6 +224,17 @@ d1 $ jux rev $ arp "<updown thumbup pinkyupdown converge diverge>"
   $ n "<c4'maj'6 e4'min7'8 g5'maj'5 a5'maj'4>" # s "jvbass"
   # room 0.3 # sz 0.7
 
+hush
 
+----
+-- loaded cs80lead in superdirt
+
+d1 $ jux rev $ arp "<updown thumbup pinkyupdown converge diverge>"
+  $ n "<c4'maj'6 e4'min7'8 g5'maj'5 a5'maj'4>" # sound "cs80lead" # crush 5
+  # room 0.2 # sz 0.6
+
+d1 $ n "c*4" #s "cs80lead" # sustain 0.4 # crush 3 # room 0.2 # sz 0.7
+  # vowel "<a e o>"
+  # pF "dtune" "<1,0.5>" --wazne: warto wiedziec ze mozemy nadpisywac zmienne w supercollider
 
 hush
