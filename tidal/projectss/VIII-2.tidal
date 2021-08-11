@@ -1,0 +1,12 @@
+setcps(135/60/4)
+
+do
+  let mx =[0,1.1,0]
+  xfadeIn 1 8
+    $ rarely (striate (irand ))
+hush
+
+d1
+    $ s "bd"
+    # room 1
+    # orbit 0

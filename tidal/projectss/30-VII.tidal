@@ -1,0 +1,30 @@
+setcps (135/60/4)
+hush
+
+do
+  let bars = 0.5
+      key = "8"
+      degraded= "0? 9? 12? 16?"
+      theme = "0 9 12 16"
+  --
+  d1 $ slow bars
+     $ stack [
+        n (degraded + key)
+     ]
+     # s "superpiano"
+     # octave "-1"
+     # sustain "3"
+  --
+
+d2 $ fast 1000 $ n "6 "# s "feelfx"
+d1 $ chop 16 $ sound "arpy ~ feel*2 newnotes"
+d1 $ chop "<16 128 32>" $ sound "arpy ~ feel*2 newnotes"
+
+d1 $ slow 2 $ rev $ chop 16 $ sound "breaks125"
+
+
+hush
+
+d2 $ silence
+d2 $ n "0 0 ~ ~" # s "ifdrums"
+d3 $
