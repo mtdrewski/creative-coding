@@ -16,8 +16,9 @@ do
      # sustain "3"
   --
 
+hush
 d2 $ fast 1000 $ n "6 "# s "feelfx"
-d1 $ chop 16 $ sound "arpy ~ feel*2 newnotes"
+d1 $ chop 1 $ sound "arpy ~ feel*2 newnotes"
 d1 $ chop "<16 128 32>" $ sound "arpy ~ feel*2 newnotes"
 
 d1 $ slow 2 $ rev $ chop 16 $ sound "breaks125"
