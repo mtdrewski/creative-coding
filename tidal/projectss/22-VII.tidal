@@ -1,5 +1,0 @@
-
-do
-  d1
-    $rarely (striate (irand 256))
-    $ s ""
