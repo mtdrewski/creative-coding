@@ -22,8 +22,8 @@ setcps (135/60/4)
 d1
   $ stack [
   -- foundation kick clap
-  s "808bd:6!4" # gain 1.2,
-  s "~ clap:7 ~ clap:7" # gain 0.8,
+  s "808bd:4!4" # gain 1.2,
+  s "~ clap:5 ~ clap:5" # gain 0.8,
   stack [
     -- ride cymbal, every 8th on the upbeat
     s "[~ 808cy]!4" # hpf 800
@@ -32,14 +32,15 @@ d1
     -- hh choking pattern with a little swing
     -- technically this is not what the video says (?) but I find this sounds nice too
     swingBy 0.01 4 $ s "[~ co:3]!4",
-    s "hh*16"
+    s "hh*8"
       -- shape
-      # rel 0.4 # sus 0.1 # decay 1
+      # rel 0.4 # sus 0.3 # decay 1
       -- LFO swing this, can map to gain/release/whatever
       # gain (slow 4 $ range 1 1.2 sine)
       -- random pitch swing and pan
       # (every 2 (# speed (rand + 0.5)) $ every 3 (# pan rand) $ n "1")
   ] -- reverb
-  # room 0.3 # size 0.3 # dry 0.7 # hpf 1000
+  # room 0.3 # size 0.3 # dry 0.7 # hpf 1000 # lpf 10000
   ]
+
   hush

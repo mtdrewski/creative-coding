@@ -11,7 +11,7 @@ render(o2)
 
 
 //dots and loops
-shape(400,0.5).repeat(30,30).modulate(osc(60,0.1).modulateScale(osc(1,0.4))
+shape(400,0.5).repeat(30,30).modulate(osc(60,0.11,2).modulateScale(osc(1,0.4))
   .kaleid(10),0.02).out(o0)
 render(o0)
 
@@ -20,6 +20,7 @@ src(o0).modulateRotate(noise(2,0),0.03).hue(0.03).layer(shape(2,0.125).luma().co
 render(o0)
 
 //wavy
+osc(20,0.1,2).out()
 osc(20,0.1,2).modulate(voronoi(3).modulate(osc(20)),1).out()
 
 //modulateee
@@ -35,10 +36,11 @@ osc(3,0,2).modulate(noise(3).add(gradient(),-1),1)
   .out()
 
 
-  osc(3,0.5,2).modulate(noise(3).add(gradient(),-1),1)
-    .modulateRotate(shape(999,0.2,0.7).mult(osc(1,3).brightness(-0.5).pixelate(1)),6,10)
-    .out()
+osc(3,0.5,2).modulate(noise(3).add(gradient(),-1),1)
+  .modulateRotate(shape(999,0.2,0.7).mult(osc(1,3).brightness(-0.5).pixelate(1)),6,10)
+  .out()
 
+gradient(1).out()
 // postcards
 new Array(10).fill().reduce((a,b)=>a.colorama(0.01),
                       gradient(0.1)).out()
@@ -51,7 +53,7 @@ osc(3, 0, 2)
 
 
 //topografia
-new Array(8).fill()
+  new Array(8).fill()
 .reduce((a,b,i)=>a.layer(osc(6, 0, 2).mask(noise(5).thresh(i/20+.1,0.01)).scroll(i/100,i/50)),osc(3,0,2)).scale(1.2).out()
 
 

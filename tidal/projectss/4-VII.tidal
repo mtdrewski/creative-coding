@@ -1,6 +1,8 @@
 --step by step
 setcps (134/60/4)
 
+hush
+
 xfadeIn 1 16 $ jux rev $ chop 4 $ sound "bsbass:8" # room "0.7" # size "0.4"
    # lpf (range 1200 400 $ slow 32 sine) #lpq 0.2
 

@@ -1,5 +1,5 @@
-osc(40, 0.1, 0) //({time})=>Math.Sin(time/10000)
-  .color(1, 0, 0)
+osc(40, 0.1, 0)
+  .color(()=>(Math.sin(time))/2+1, 0, 0)
   .layer(
     shape(4)
       .scale(1, 4, 1.2)
