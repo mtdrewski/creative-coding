@@ -1,0 +1,46 @@
+setcps (144/60/4)
+
+hush
+
+
+d1 $ fast 2 $ s "casio" <| n "1 2 ~ 2" # speed 0.25 # cut 1 -- tak
+
+
+d1 $  "0 2 1 [[0 3 1] 0]" # s "clubkick" # triode 3
+
+d2 $ n "<0 1>" # s "casio" # distort "1"
+hush
+
+
+d2 $ sound "cpu*16" # n "0 0 ~ 3 ~"  #crush "3" # gain "[0.8 0.7]*32"
+
+f
+
+
+setcps (135/60/4)
+
+d1
+  $ stack [
+  -- foundation kick clap
+  s "808bd:4!4" # gain 1.2,
+  s "~ clap:5 ~ clap:5" # gain 0.8,
+  stack [
+    -- ride cymbal, every 8th on the upbeat
+    s "[~ 808cy]!4" # hpf 800
+      -- swing a little bit too
+      # release (range 0.3 0.7 sine),
+    -- hh choking pattern with a little swing
+    -- technically this is not what the video says (?) but I find this sounds nice too
+    swingBy 0.01 4 $ s "[~ co:3]!4",
+    s "hh*8"
+      -- shape
+      # rel 0.4 # sus 0.3 # decay 1
+      -- LFO swing this, can map to gain/release/whatever
+      # gain (slow 4 $ range 1 1.2 sine)
+      -- random pitch swing and pan
+      # (every 2 (# speed (rand + 0.5)) $ every 3 (# pan rand) $ n "1")
+  ] -- reverb
+  # room 0.3 # size 0.3 # dry 0.7 # hpf 1000 # lpf 10000
+  ]
+
+  hush
