@@ -1,0 +1,66 @@
+do
+  let bars = 4
+      key = "8"
+      lefthand = "[0 9 12 16] [4 12 16 19] [5 12 17 19] [2]"
+  --
+  d2 $ slow bars
+     $ stack [
+        n (lefthand + key)
+     ]
+     # s "arpy"
+     # octave "3"
+     # sustain "2"
+----------
+
+setcps(134/60/4)
+
+do
+  let mx = [1, 0.7, 0.8]
+  xfadeIn 1 4
+    $ jux rev
+    $ chop 4
+    $ s "bsbass:4"
+    # lpf (range 1200 400 $ slow 32 sine)
+    # xsdelay 4 # tsdelay 4
+    # room 0.3 # size 0.2
+    # gain (mx!!0)
+  xfadeIn 2 4 $ chop 16 $ s "bsbass:3"
+    # phaserrate 4 # phaserdepth 16
+    # shape (range 0.2 0.4 $ slow 16 (sine+0.5))
+    # crush 3
+    # hpf 300
+    # xsdelay 4 # tsdelay 4
+    # gain (mx!!1)
+  d3
+    $ jux rev
+    $ splice 8 ("1 4 ~ 1 [2 3] ~ 6*2 7") -- splice 8 ("6 1 [2 3] 7 4 1 6*2 7")
+    $ sound "break:4"
+    # xsdelay 1 # tsdelay 1
+    # gain (mx!!2)
+
+hush
+
+  {-  stack [
+    -- foundation kick clap
+    s "808bd:4!4" # gain 1.2,
+    s "~ clap:5 ~ clap:5" # gain 0.8,
+    stack [
+      -- ride cymbal, every 8th on the upbeat
+      s "[~ 808cy]!4" # hpf 800
+        -- swing a little bit too
+        # release (range 0.3 0.7 sine),
+      -- hh choking pattern with a little swing
+      -- technically this is not what the video says (?) but I find this sounds nice too
+      swingBy 0.01 4 $ s "[~ co:3]!4",
+      s "hh*8"
+        -- shape
+        # rel 0.4 # sus 0.3 # decay 1
+        -- LFO swing this, can map to gain/release/whatever
+        # gain (slow 4 $ range 1 1.2 sine)
+        -- random pitch swing and pan
+        # (every 2 (# speed (rand + 0.5)) $ every 3 (# pan rand) $ n "1"
+    ]
+    # gain (mx!!2)
+    -- # legato 2
+-}
+hush

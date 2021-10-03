@@ -19,7 +19,7 @@ f
 
 setcps (135/60/4)
 
-d1
+d3
   $ stack [
   -- foundation kick clap
   s "808bd:4!4" # gain 1.2,
