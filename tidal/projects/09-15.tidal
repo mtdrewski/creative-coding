@@ -1,0 +1,17 @@
+setcps (118/60/4)
+
+
+hush
+
+d1 $
+
+d1 $ speed (segment "128 64 256 16" $ range 0.5 "<64 128 16 32>" sine) # "break:12"  # legato 1 -- # pan (fast 4 (sine))
+
+
+
+d1 $ often (#squiz 8) $ struct "t(5,8,<3 8>)" $ n "0 1 2 1 2 1 2 5 6 7" # sound "invaders"
+   # room (range 0.1 0.2 rand)
+   # gain 0.7
+
+d2 $ iter' 4 $ loopAt 2 $ chop 4 $ sound "break:12"
+    # gain (range 0.8 1.2 rand)
