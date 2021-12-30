@@ -1,0 +1,27 @@
+setcps(134/60/4)
+
+do
+  let mx = [1, 1, 0.8]
+  xfadeIn 1 4
+    $ jux rev
+    $ chop 4
+    $ s "bsbass:4"
+    # lpf (range 1200 400 $ slow 32 sine)
+    # xsdelay 4 # tsdelay 4
+    # room 0.3 # size 0.2
+    # gain (mx!!0)
+  xfadeIn 2 4 $ chop 16 $ s "bsbass:3"
+    # phaserrate 4 # phaserdepth 16
+    # shape (range 0.2 0.4 $ slow 16 (sine+0.5))
+    # crush 3
+    # hpf 300
+    # xsdelay 4 # tsdelay 4
+    # gain (mx!!1)
+  d3
+    $ jux rev
+    $ splice 8 ("1 4 ~ 1 [2 3] ~ 6*2 7") -- splice 8 ("6 1 [2 3] 7 4 1 6*2 7")
+    $ sound "break:4"
+    # xsdelay 1 # tsdelay 1
+    # gain (mx!!2)
+
+hush

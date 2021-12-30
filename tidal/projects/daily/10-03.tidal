@@ -15,7 +15,7 @@ do
 setcps(134/60/4)
 
 do
-  let mx = [1, 0.7, 0.8]
+  let mx = [1, 07, 0.8]
   xfadeIn 1 4
     $ jux rev
     $ chop 4

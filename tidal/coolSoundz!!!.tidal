@@ -22,4 +22,5 @@ d3 $ s "hh*10"  # gain "[0.8 1.2]*5"
 d2 $ slow 2 $ sound "bd*32" # shape sine #gain "0.6"
 d1 $ sound "clap*32" # speed (-0.02)
 hush
+
 panic

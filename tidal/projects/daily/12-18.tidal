@@ -1,0 +1,63 @@
+-- jeden utwor ktory jakos wyszedl, teraz bedziemy go non stop zmieniac
+--step by step
+
+setcps(140/60/4)
+
+hush
+
+do
+  let mx = [1, 0, 0]
+  d1 $ loopAt 16
+     $ chop 64 -- $ splice 8 "
+    -- $ striate
+     $ sound "danganr:1"
+     -- # crush 1
+     -- # xsdelay 4 # tsdelay
+     -- # octer 1
+     # lpf 1200
+     # room 0.3 # size 0.2
+     # legato 1.2
+     # gain (mx!!0)
+  d2 $ chop 8
+     $ loopAt 4-- $ loopAt 4
+     -- $ jux rev
+     $ sound "danganr:0"
+     # lpf 1200
+     # gain (mx!!1)
+  d3  $ rarely (# squiz 2) $ chop 16 $ s "bsbass:3"
+      # phaserrate 4 # phaserdepth 16
+      # shape (range 0.2 0.4 $ slow 16 (sine+0.5))
+      -- # crush 3
+      -- # hpf 00
+      -- # xsdelay 4 # tsdelay 4
+      # gain (mx!!2)
+
+d1 $ stack [
+    slow 2 $ n "[3 0] ~ ~ ~" # sound "gab"
+    ]
+
+d1 $ sound "gab:3"
+
+d1 $ n "<0 1>" # sound "clak"
+
+
+hush
+
+
+interpolate 1 $ sound "arpy*16" # cutoff 16000
+
+
+clutch 1 $ splice 8 "1 2" $ sound "danganr:1" # legato 1.1
+
+
+d1 $ chop 16 $ loopAt 2 $ splice 16 "3" $ sound "danganr:0"
+  # legato 1.5
+
+d1 $ jux rev
+   $ chop 4
+   $ slow 2 $ splice 8 "2 3" $ sound "danganr:0"
+   # room "0.7" # size "0.4"
+   # lpf (range 1200 400 $ slow 32 sine)
+   # lpq 0.2
+
+d1 $ loopAt 16 $ splice 8 "2 3 4 5 6 7 " $ sound "danganr:0"
