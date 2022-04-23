@@ -8,7 +8,7 @@ hush
 
 -- glitchy!!!#!!@31
 
-d1 $ fast 2 $ n "0 4*2 ~ 4 2 4 5 ~" # sound "cpu2"
+d2 $ fast 2 $ n "0 4*2 ~ 4 2 4 5 ~" # sound "cpu2"
   # squiz 10 # gain "0.8"
 
 d2 $ sound "cpu*16" # n "0 0 ~ 3 ~"  #crush "3" # gain "[0.8 0.7]"
@@ -18,9 +18,17 @@ setcps(135/60/4)
 
 d3 silence
 
+d3 $ s "hh*10"
+
 d3 $ s "hh*10"  # gain "[0.8 1.2]*5"
-d2 $ slow 2 $ sound "bd*32" # shape sine #gain "0.6"
-d1 $ sound "clap*32" # speed (-0.02)
+
+d3 $ slow 2 $ sound "bd*32" # shape sine #gain "0.6"
+
+d2 $ sound "clap*32" # speed (-0.02)
+
+d2 $ silence
+
 hush
+
 
 panic

@@ -1,0 +1,9 @@
+setcps(135/60/4)
+
+d1 $ s "gabbalouder*4" # n "<1 2>" -- wisott
+
+d2 $ sound "cpu*16" # n "0 0 ~ 3 ~" # crush "3" -- # gain "[0.8 0.7]"
+
+d3 $ slow 2 $ sound "bd*32" # shape sine -- #gain "0.6"
+
+hush

@@ -83,7 +83,7 @@ d1 $ slow 4 $ s "d" <| n (run 4) -- four misc useless sounds
 d1 $ s "db" <| n (scramble 13 $ run 13) -- hmm, pretty usable dry drumkit iya
 d1 $ slow 16 $ s "diphone" <| n (run 38) -- tts
 d1 $ slow 8 $ s "diphone2" <| n (run 12) -- tts
-d1 $ loopAt 1 $ s "dist:1" -- 16 highly distorted 1 bar drum loops
+d1 $ loopAt 1 $ s "dist:8" -- 16 highly distorted 1 bar drum loops
 d1 $ slow 4 $ s "dork2" <| n (run 4) -- four sounds, nae idea, voices in a space?
 d1 $ slow 4 $ s "dorkbot" <| n (run 2) -- people saying dorkbot, two variations
 d1 $ slow 4 $ s "dr" <| n (run 42) -- loud midi drumkit, nasty cutoff at end
