@@ -51,7 +51,7 @@ d3 $ superimpose (density 2) $ weave 4 (sound "jvbass") [
 
 d4 $ jux (rev) $ sound "{bd ~ bd [cp cp?], ~ ~ hh [hh hh] [hh hh hh]}" # gain "<1 0 1 1>" # shape 0.4
 
-d5 $ sound "bd*16?" # up (irand 32)
+d5 $ sound "bd*16" # up (irand 32)
 
 
 hush

@@ -1,0 +1,37 @@
+setcps (165/60/4)
+
+hush
+
+do
+  let mx = [1, 1, 1, 1, 0]
+  d1 $ stack
+    [ sound "bd(3,8,2)",
+      sound "cp*2",
+      -- sound "hh*12",
+      sound "cpu*16" # n "3 ~ ~ 3 ~"  # crush "3"
+    ]
+     # gain (mx!!0)
+  d2
+     $ chop 32
+     $ n "2"
+     # s "jungbass"
+     -- #
+     # lpf 500
+     # gain (mx!!1)
+  d3 $ splice 8 ("1 5 ~ 1 3 ~ 6*2 7")
+     $ s "breaks165"
+     -- # squiz
+     # gain (mx!!2)
+  d4 $ n "0 4*2 ~ 4 2 4 5 ~"
+     # sound "cpu2"
+     # squiz 10
+     # gain "0.8"
+     # gain (mx!!3)
+  d5 $ loopAt 3
+     $ chop 32
+     $ "bsbass:8"
+     # room "0.7" # size "0.4"
+     # lpf (range 1200 400 $ slow 32 sine)
+     # gain (mx!!4)
+
+hush

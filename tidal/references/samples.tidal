@@ -1,5 +1,6 @@
 -------------------- all the samples
 hush
+
 d1 $ s "808" <| n (run 6) -- 6 misc 808 sound
 
 d1 $ slow 2 $ s "808bd" <| n (run 25) -- 25 rather similar 808 kicks!
@@ -58,7 +59,7 @@ setcps (157/60/4)
 d1 $ s "breaks157" -- one bar break at 157
 setcps (165/60/4)
 d1 $ s "breaks165" -- one bar amen at 165
-setcps (120/60/4
+setcps (120/60/4)
 d1 $ s "breath" -- one breath sound, pretty pointless
 d1 $ s "bubble" <| n (run 8) -- actually sound more or less like kicks
 d1 $ s "can" <| n (run 14) -- intersting percussive sounds
