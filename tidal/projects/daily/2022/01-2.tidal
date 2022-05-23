@@ -1,16 +1,22 @@
 setcps(125/60/4)
 
-xfadeIn 1 4 $ fast 0.5--(range 2 3 $ slow 4 $ sine)
+hush
+
+d1 $ silence
+
+xfadeIn 1 4 $ fast (range 2 4 $ slow 4 $ sine)
    $ sound "bd*32"
    # shape (range 0.8 1 $ slow 2 $ sine)
    # crush (range 2 3 $ slow 4 $ cosine)
-   -- # lpf (range 4000 6000 $ slow 3 $ sine)
+   # lpf (range 800 1200 $ slow 5 $ cosine)
 
-xfadeIn 2 1 $ fast 2
+d2 $ silence
+
+xfadeIn 2 16 $ fast 2
    $ sound "bd*32"
    # shape (range 0.6 1 $ slow 2 $ sine)
    # crush (range 2 3 $ slow 4 $ cosine)
-   # lpf (range 4000 6000 $ slow 3 $ sine)
+   # lpf (range 800 1200 $ slow 3 $ sine)
    # gain "0.8"
 
 d3 $ sound "clap*32" # speed (-0.02)

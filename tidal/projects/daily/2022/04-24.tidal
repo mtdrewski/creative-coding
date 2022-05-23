@@ -1,9 +1,18 @@
-setcps (165/60/4)
+setcps (135/60/4)
 
 hush
 
+mortal 1 16 8 $ s "bd sn"
+
+
+$ n "0 4*2 ~ 4 2 4 5 ~"
+  # sound "cpu2"
+  # squiz 12
+  # gain "0.8"
+  # gain (mx!!3)
+
 do
-  let mx = [1, 1, 1, 1, 0]
+  let mx = [1, 1, 1, 1, 1]
   d1 $ stack
     [ sound "bd(3,8,2)",
       sound "cp*2",
@@ -24,7 +33,7 @@ do
      # gain (mx!!2)
   d4 $ n "0 4*2 ~ 4 2 4 5 ~"
      # sound "cpu2"
-     # squiz 10
+     # squiz 12
      # gain "0.8"
      # gain (mx!!3)
   d5 $ loopAt 3

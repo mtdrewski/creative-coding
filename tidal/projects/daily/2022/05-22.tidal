@@ -1,0 +1,131 @@
+setcps (135/60/4)
+
+hush
+
+do
+  let mx = [1, 0, 0]
+  d1 $ loopAt 16
+     $ chop 64 -- $ splice 8 "
+    -- $ striate
+     $ sound "danganr:1"
+     -- # crush 1
+     -- # xsdelay 4 # tsdelay
+   -- # octer 1
+--      # djf (range 0.2 0.8 $ slow 1 sine)
+     --- # lpf 1200
+     # room 0.3 # size 0.2
+     -- # legato 1.2
+     # gain (mx!!0)
+  d2 $ loopAt 4
+     $ chop 8-- $ loopAt 4
+     -- $ jux rev
+     $ sound "danganr:0"
+     # lpf 1200
+     # gain (mx!!1)
+  d3  $ rarely (# squiz 2) $ chop 16 $ s "bsbass:3"
+      # phaserrate 4 # phaserdepth 16
+      # shape (range 0.2 0.4 $ slow 16 (sine+0.5))
+      -- # crush 3
+      -- # hpf 00
+      -- # xsdelay 4 # tsdelay 4
+      # gain (mx!!2)
+
+
+
+
+
+------------------------------
+setcps (134/60/4)
+
+hush
+
+xfadeIn 1 4$ jux rev
+   $ chop 4
+   $ sound "bsbass:8"
+   # room "0.7" # size "0.4"
+   # lpf (range 1200 400 $ slow 32 sine)
+   # lpq 0.2
+
+
+d2 $ n "1 ~ 1 ~ ~ "
+   # s "bskick"
+   # gain "1.2"
+   # lpf 2000
+   # room "0.2"
+   # size "0.4"
+
+xfadeIn 3 4
+    $ sound "hh:8*8"
+    # room "0.1"
+    # size "0.2"
+    # pan (range 0.4 0.6 $ slow 4 $ sine)
+
+d4 $ n "~ ~ ~ 4"
+   # s "cp"
+   # squiz 8
+   # room "0.5" # size "0.4"
+   # gain 0.9
+
+d5 $ sound "hh:3 ~ hh:3? ~"
+   # room "0.4"
+
+d6 $ sometimes rev $ up "[0 ~ ~ [~ 2] ~ ~ ~]/2"
+   # s "bass:9"
+   # crush 3
+
+
+-----------------------------------------
+hush
+
+d2 $ silence
+
+setcps(165/60/4)
+
+d1 $ stack[
+iter 4 $
+sometimesBy 0.25 (|*| up "<2 5 >") $
+sometimesBy 0.2 (|-| up "<2 1>")$
+jux (rev)$
+ n "[d4 f4 g4 a4]*4" # s "supersaw" # cut 1 # shape 0.3
+ # lpf (range 600 9000 $ slow 4 $ sine) # resonance (range 0.03 0.4 $ slow 3 $ cosine)
+ #  octave (choose [4,5,6]) # gain 0,
+ sometimesBy 0.15 (degradeBy 0.125) $
+ s "amencutup*8" # n (choose [4,5,6,3,2,1]) # distort 0.3
+ # speed (range 0.8 1.2 $ slow 2 $ rand) ]
+# room 0.5 # size 0.5 # pan (range 0.4 0.6 $ slow 2 $sine)
+
+-------------------------------------------------------
+d1 $ silence
+
+setcps(135/60/4)
+
+d1 $ s "supersaw"   -- four very assorted long sounds, not exactly pads
+   # up ("<f'maj7'8 fs'maj7'9>/4" - "<12 10>/8")
+   # room 0.5 # size 0.85 # gain 0.60 # legato 1
+   # coarse (irand 4)
+
+hush
+-------------------
+
+d1 $ sometimes rev $ up "[0 ~ ~ [~ 2] ~ ~ ~]/2"
+   # s "bass:9"
+   # crush 3
+
+d2 $ every 5 (#coarse "8 12 16")
+   $ every 3 (plyWith (choose[4,5,6,7]) (|+ speed 0.55)) -- SUPER EFFECT
+   -- $ chunk' 4 ((hurry 2).(#coarse 4))
+   $ loopAt 2
+   $ chop 128 -- MODIFY THIS
+   $ s "my_break:3"
+   # shape 0.6 # gain 0.8-- # n (irand 70)
+
+
+d3 $ fast (range 2 4 $ slow 4 $ sine)
+   $ sound "bd*32"
+   -- # crush (range 0.8 1 $ slow 2 $ sine)
+   -- # crush (range 2 3 $ slow 4 $ cosine)
+   # lpf (range 800 1200 $ slow 5 $ cosine)
+   # gain 0.6
+
+
+d4 $ sound "clap*32" # speed (-0.02)
