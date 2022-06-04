@@ -88,7 +88,7 @@ sometimesBy 0.2 (|-| up "<2 1>")$
 jux (rev)$
  n "[d4 f4 g4 a4]*4" # s "supersaw" # cut 1 # shape 0.3
  # lpf (range 600 9000 $ slow 4 $ sine) # resonance (range 0.03 0.4 $ slow 3 $ cosine)
- #  octave (choose [4,5,6]) # gain 0,
+ #  octave (choose [4,5,6]) # gain 1,
  sometimesBy 0.15 (degradeBy 0.125) $
  s "amencutup*8" # n (choose [4,5,6,3,2,1]) # distort 0.3
  # speed (range 0.8 1.2 $ slow 2 $ rand) ]
@@ -105,27 +105,60 @@ d1 $ s "supersaw"   -- four very assorted long sounds, not exactly pads
    # coarse (irand 4)
 
 hush
--------------------
+-------------
+setcps(135/60/4)
 
-d1 $ sometimes rev $ up "[0 ~ ~ [~ 2] ~ ~ ~]/2"
-   # s "bass:9"
+d1 $ silence
+
+
+d1
+   -- $ whenmod 16 4 (|+|3)
+   $ off 0.25 (|-| 12)
+   $ n "[d1(3,8) f1(3,8) e1(3,8,2) a1(3,8,2)]/2"
+   # s "rash"
    # crush 3
+   # room 0.5 # size 0.6 #lpf (range 1000 3000 $ slow 7 $ sine)
+   # resonance (range 0.3 0.6 $ slow 2 $ cosine)
+   # cut 1
+
+
+
+--xfadeIn 1 8
+
+d1
+   $ sometimes rev
+   $ up "[0 ~ ~ 2 ~ ~ ~]/2"
+   # s "jungbass:2"
+   # crush 4
+
 
 d2 $ every 5 (#coarse "8 12 16")
-   $ every 3 (plyWith (choose[4,5,6,7]) (|+ speed 0.55)) -- SUPER EFFECT
-   -- $ chunk' 4 ((hurry 2).(#coarse 4))
-   $ loopAt 2
-   $ chop 128 -- MODIFY THIS
-   $ s "my_break:3"
-   # shape 0.6 # gain 0.8-- # n (irand 70)
+   $ every 3 (plyWith (choose[4,5,6,7]) (|+ speed (choose[0.55, 0.35, 0.45]))) -- SUPER EFFECT
+   $ chunk' 4 ((hurry 2).(#coarse 4))
+   $ loopAt 4
+   $ chop 256 -- MODIFY THIS
+   $ splice 8 ("1 4 ~ 1 [2 3] ~ 6*2 7")
+   $ s "my_break:5"
+   # shape 0.7 # gain 0.8-- # n (irand 70)
 
 
-d3 $ fast (range 2 4 $ slow 4 $ sine)
+d3  -- $ rarely (# squiz 2)
+    $ chop 16 $ s "bsbass:3"
+    -- # phaserrate 4 # phaserdepth 16
+    # shape (range 0.3 0.6 $ slow 16 (sine+0.5))
+    -- # crush 3
+    -- # hpf 100
+    # xsdelay 4 # tsdelay 4
+    # gain 1.2
+
+
+d4 $ fast (range 2 4 $ slow 4 $ sine)
    $ sound "bd*32"
-   -- # crush (range 0.8 1 $ slow 2 $ sine)
-   -- # crush (range 2 3 $ slow 4 $ cosine)
+   # crush (range 2 3 $ slow 4 $ cosine)
    # lpf (range 800 1200 $ slow 5 $ cosine)
-   # gain 0.6
+   # gain 0.8
 
 
 d4 $ sound "clap*32" # speed (-0.02)
+
+hush

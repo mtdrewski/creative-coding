@@ -1,0 +1,36 @@
+d1
+   $ sometimes rev
+   $ up "[0 ~ ~ 2 ~ ~ ~]/2"
+   # s "jungbass:2"
+   # crush 4
+   # gain 0.9
+
+d2 $ every 5 (#coarse "8 12 16")
+   $ every 3 (plyWith (choose[4,5,6,7]) (|+ speed (choose[0.55, 0.35, 0.45]))) -- SUPER EFFECT
+   $ chunk' 4 ((hurry 2).(#coarse 4))
+   $ loopAt 4
+   $ chop 64 -- MODIFY THIS
+   -- $ splice 8 ("1 4 ~ 1 [2 3] ~ 6*2 7")
+   $ s "my_break:2"
+   # shape 0.7 # gain 0.8-- # n (irand 70)
+
+
+d3  -- $ rarely (# squiz 2)
+       $ chop 64 $ s "bsbass:3"
+       # phaserrate 4 # phaserdepth 16
+       # shape (range 0.3 0.6 $ slow 16 (sine+0.5))
+       # crush 3
+       -- # hpf 100
+       # xsdelay 4 # tsdelay 4
+       # gain 1
+
+d2 $ silence
+
+
+d4 $ fast (range 2 4 $ slow 4 $ sine)
+   $ sound "bd*32"
+   # crush (range 2 3 $ slow 4 $ cosine)
+   # lpf (range 800 1200 $ slow 5 $ cosine)
+   # gain 0.8
+
+hush
