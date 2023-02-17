@@ -1,0 +1,5 @@
+s("bd*32")
+  .shape(sine.range(0.8,1).slow(2))
+  .crush(sine.range(2,3).slow(4))
+  .lpf(sine.range(4000,6000))
+  .slow(2)

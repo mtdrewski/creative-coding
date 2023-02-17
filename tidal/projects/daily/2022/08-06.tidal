@@ -1,0 +1,20 @@
+setcps(160/60/4)
+
+
+d1 $ slowspread (loopAt) [1,0.25]
+   $ slowspread (density) [4,2,4,8]
+   $ sound "perc*4"
+-- # shape 0.7
+   # gain 0.8
+
+d2 $ loopAt 1
+   $ sound "tear"
+   # squiz 2
+   # lpf 2000
+
+d3 $ sound "perc*16" # n "0 0 ~ 3 ~"  #crush "3" # gain "[0.8 0.7]"
+
+
+d1 $ silence
+
+d2 $ silence
